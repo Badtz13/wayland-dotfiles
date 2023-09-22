@@ -1,0 +1,4 @@
+text-color = #{foreground.strip}
+background-color = #{background.strip}
+selection-color = {color12}
+border-color = {color11}

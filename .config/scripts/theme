@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# set $THEME variable via tofi 
+export THEME=$(ls $HOME/Pictures/wallpapers | tofi)
+
+# call theme setter
+$HOME/.config/hypr/theme.sh
