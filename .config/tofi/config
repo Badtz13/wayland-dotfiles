@@ -38,8 +38,6 @@
 	# sizes.
 	hint-font = true
 
-include = $HOME/.cache/wal/colors-tofi
-
 #
 ### Text theming
 #
