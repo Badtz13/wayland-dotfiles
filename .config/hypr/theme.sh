@@ -18,7 +18,9 @@ function find_image {
 }
 
 # make sure swww daemon is running 
-swww query > /dev/null || swww init > /dev/null
+if ! swww query; then
+    swww init
+fi
 
 # make sure images were found 
 image1=$(find_image $THEME 1)
