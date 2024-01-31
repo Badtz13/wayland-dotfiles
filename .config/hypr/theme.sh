@@ -23,9 +23,9 @@ if ! swww query; then
 fi
 
 # make sure images were found 
-image1=$(find_image $THEME 1)
-image2=$(find_image $THEME 2)
-image3=$(find_image $THEME 3)
+image1=$(find_image $1 1)
+image2=$(find_image $1 2)
+image3=$(find_image $1 3)
 
 # generate pywal scheme
 [ "$image1" != "Error: No image found." ] && wal -q -i "$image1" 
@@ -35,7 +35,14 @@ image3=$(find_image $THEME 3)
 [ "$image2" != "Error: No image found." ] && swww img -o DP-3 "$image2" --transition-type none
 [ "$image3" != "Error: No image found." ] && swww img -o HDMI-A-1 "$image3" --transition-type none
 
+#generate gtk theme
+wpg -s $image1
+
 # run pywal scripts
 pywalfox update
 sh $HOME/.config/dunst/wal.sh
 sh $HOME/.config/spicetify/Themes/Pywal/update-colors.sh 
+pywal-discord -t default
+$HOME/.config/wpg/wp_init.sh
+
+echo $1 > $HOME/.config/hypr/CurrentTheme
