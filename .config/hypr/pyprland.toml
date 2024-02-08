@@ -1,5 +1,12 @@
 [pyprland]
 plugins = [
   "lost_windows",
-  "shift_monitors"
+  "shift_monitors",
+  "scratchpads"
 ]
+
+[scratchpads.volume]
+command = "pavucontrol"
+class = "pavucontrol"
+lazy = true
+size = "40% 90%"
