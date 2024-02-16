@@ -1,8 +1,7 @@
 [pyprland]
 plugins = [
   "lost_windows",
-  "shift_monitors",
-  "scratchpads"
+  "shift_monitors"
 ]
 
 [scratchpads.volume]
