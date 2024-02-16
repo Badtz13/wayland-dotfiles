@@ -1,0 +1,9 @@
+#!/bin/bash
+sh fetch.sh
+echo 
+echo $(date +"%-I:%M%p, %a, %b %d, %Y") 
+echo
+sh $HOME/.config/polybar/next_gcal_event.sh | sed '2d'
+echo 
+sh use
+read -p ""

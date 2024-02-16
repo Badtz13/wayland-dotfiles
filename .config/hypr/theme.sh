@@ -31,9 +31,9 @@ image3=$(find_image $1 3)
 [ "$image1" != "Error: No image found." ] && wal -q -i "$image1" 
 
 # set wallpapers if they were found
-[ "$image1" != "Error: No image found." ] && swww img -o DP-2 "$image1"  --transition-type none
-[ "$image2" != "Error: No image found." ] && swww img -o DP-3 "$image2" --transition-type none
-[ "$image3" != "Error: No image found." ] && swww img -o HDMI-A-1 "$image3" --transition-type none
+[ "$image1" != "Error: No image found." ] && swww img -o DP-2 "$image1"  --transition-type fade
+[ "$image2" != "Error: No image found." ] && swww img -o DP-3 "$image2" --transition-type fade
+[ "$image3" != "Error: No image found." ] && swww img -o HDMI-A-1 "$image3" --transition-type fade
 
 #generate gtk theme
 wpg -s $image1
@@ -46,3 +46,4 @@ pywal-discord -t default
 $HOME/.config/wpg/wp_init.sh
 
 echo $1 > $HOME/.config/hypr/CurrentTheme
+echo $(date) >> $HOME/.config/hypr/Timestamps.txt
