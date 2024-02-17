@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Check if dunst is paused
+paused=$(dunstctl is-paused)
+
+if [ "$paused" = "true" ]; then
+  # If paused, unpause and notify
+  dunstctl set-paused false
+  notify-send "Notifications" "Notifications are now unpaused."
+else
+  # If not paused, notify, sleep for 3 seconds, then pause
+  notify-send "Notifications" "Notifications will be paused."
+  sleep 3
+  dunstctl set-paused true
+fi

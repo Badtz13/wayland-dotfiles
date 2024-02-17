@@ -3,9 +3,3 @@ plugins = [
   "lost_windows",
   "shift_monitors"
 ]
-
-[scratchpads.volume]
-command = "pavucontrol"
-class = "pavucontrol"
-lazy = true
-size = "40% 90%"

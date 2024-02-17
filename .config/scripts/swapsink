@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Get the list of sink names
+SINKS=($(pactl list short sinks | cut -f2))
+
+# Get the current default sink name
+CURRENT_SINK=$(pactl get-default-sink)
+
+# Find the index of the current default sink in the list
+CURRENT_INDEX=-1
+for i in "${!SINKS[@]}"; do
+   if [[ "${SINKS[$i]}" = "$CURRENT_SINK" ]]; then
+       CURRENT_INDEX=$i
+       break
+   fi
+done
+
+# Determine the next sink (cycle through the list)
+NEXT_INDEX=$((CURRENT_INDEX + 1))
+if [ $NEXT_INDEX -ge ${#SINKS[@]} ]; then
+  NEXT_INDEX=0
+fi
+
+# Set new default sink
+NEW_SINK="${SINKS[$NEXT_INDEX]}"
+pactl set-default-sink "$NEW_SINK"
+
+# Move all inputs to the new sink
+pactl list short sink-inputs | cut -f1 | xargs -I {} pactl move-sink-input {} "$NEW_SINK"
+
+
+notify-send "Audio output switched to" $NEW_SINK

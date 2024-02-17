@@ -5,5 +5,7 @@ echo $(date +"%-I:%M%p, %a, %b %d, %Y")
 echo
 sh $HOME/.config/polybar/next_gcal_event.sh | sed '2d'
 echo 
+echo "Notifications are currently $(dunstctl is-paused | sed 's/true/paused/;s/false/unpaused/')"
+echo
 sh use
 read -p ""

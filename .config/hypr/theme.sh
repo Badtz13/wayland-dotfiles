@@ -19,6 +19,7 @@ function find_image {
 
 # make sure swww daemon is running 
 if ! swww query; then
+    echo "starting swww"
     swww init
 fi
 
