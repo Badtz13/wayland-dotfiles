@@ -1,5 +1,0 @@
-[pyprland]
-plugins = [
-  "lost_windows",
-  "shift_monitors"
-]
