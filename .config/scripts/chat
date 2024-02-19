@@ -1,0 +1,24 @@
+#!/bin/bash
+
+hyprctl dispatch exec "[workspace 5;silent;tile;noinitialfocus;] beeper"
+hyprctl dispatch exec "[workspace 5;silent;tile;noinitialfocus;] discord"
+
+check_apps_open_and_tiled() {
+    clients=$(hyprctl clients -j)
+
+    discord_open=$(echo "$clients" | jq '.[] | select(.class == "discord" and .floating == false and .workspace.id == 5)')
+    beeper_open=$(echo "$clients" | jq '.[] | select(.class == "Beeper" and .floating == false and .workspace.id == 5)')
+
+    if [[ -n "$discord_open" && -n "$beeper_open" ]]; then
+        return 0
+    else
+        return 1
+    fi
+}
+
+while ! check_apps_open_and_tiled; do
+    sleep 1
+done
+
+hyprctl dispatch workspace 5
+hyprctl dispatch splitratio -0.5

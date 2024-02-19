@@ -1,4 +1,11 @@
 #!/bin/bash
 
-# Call theme.sh with the output of tofi command as a parameter
-$HOME/.config/hypr/theme.sh "$(ls $HOME/Pictures/wallpapers | tofi -c $HOME/.config/tofi/config --include "$HOME/.cache/wal/colors-tofi")"
+# Prepend "Assign Random" to the list of wallpapers, then pass it to tofi
+SELECTED=$(echo -e "Assign Random\n$(ls $HOME/Pictures/wallpapers)" | tofi -c $HOME/.config/tofi/config --include "$HOME/.cache/wal/colors-tofi")
+
+# Call theme.sh with the selected option
+if [ "$SELECTED" == "Assign Random" ]; then
+  $HOME/.config/hypr/theme.sh "random"
+else
+  $HOME/.config/hypr/theme.sh "$SELECTED"
+fi
