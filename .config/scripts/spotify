@@ -1,3 +1,4 @@
-#/bin/sh
+#!/bin/bash
+
 kill spotify
 spicetify watch -s
