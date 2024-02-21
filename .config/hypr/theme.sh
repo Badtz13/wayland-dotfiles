@@ -68,3 +68,4 @@ sudo convert $image1 -resize 1920x1200\! -quality 100 /usr/share/sddm/themes/arc
 
 # notify theme
 notify-send "Theme set to" $(cat ~/.config/hypr/current/theme)
+
