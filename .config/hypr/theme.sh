@@ -58,9 +58,13 @@ pywal-discord -t default
 $HOME/.config/wpg/wp_init.sh
 
 # store current theme
-echo $theme > $HOME/.config/hypr/CurrentTheme
+echo $theme > $HOME/.config/hypr/current/theme
 
-convert $image1 -resize 1920x1200\! -quality 100 $HOME/.config/hypr/currentBackground.png
+# for this to work:
+# sudo -E EDITOR=nano visudo
+# badtz ALL=(ALL) NOPASSWD: /usr/bin/convert * -resize 1920x1200\! -quality 100 /usr/share/sddm/themes/archlinux-simplyblack/background.png
+
+sudo convert $image1 -resize 1920x1200\! -quality 100 /usr/share/sddm/themes/archlinux-simplyblack/background.png
 
 # notify theme
-notify-send "Theme set to" $(cat ~/.config/hypr/CurrentTheme)
+notify-send "Theme set to" $(cat ~/.config/hypr/current/theme)

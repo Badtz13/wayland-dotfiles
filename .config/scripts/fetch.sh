@@ -54,7 +54,7 @@ Memory() {
   printf "$memu""Mib"" / ""$memt""Mib";
 }
 Theme() {
-  printf $(cat $HOME/.config/hypr/CurrentTheme)
+  printf $(cat $HOME/.config/hypr/current/theme)
 }
 
 help() { printf "${c2} Usage: fetch [-n|o|k|u|s|d|m|h]
