@@ -57,15 +57,16 @@ sh $HOME/.config/spicetify/Themes/Pywal/update-colors.sh
 pywal-discord -t default
 $HOME/.config/wpg/wp_init.sh
 
+# notify theme
+notify-send "Theme set to" $theme -t 2000
+
 # store current theme
 echo $theme > $HOME/.config/hypr/current/theme
 
 # for this to work:
 # sudo -E EDITOR=nano visudo
-# badtz ALL=(ALL) NOPASSWD: /usr/bin/convert * -resize 1920x1200\! -quality 100 /usr/share/sddm/themes/archlinux-simplyblack/background.png
+# badtz ALL=(ALL) NOPASSWD: /usr/bin/convert * -resize 1920x1200\! -quality 100 /usr/share/sddm/themes/where_is_my_sddm_theme/background.png
 
-sudo convert $image1 -resize 1920x1200\! -quality 100 /usr/share/sddm/themes/archlinux-simplyblack/background.png
+sudo convert $image1 -resize 1920x1200\! -quality 100 /usr/share/sddm/themes/where_is_my_sddm_theme/background.png
 
-# notify theme
-notify-send "Theme set to" $(cat ~/.config/hypr/current/theme)
 
