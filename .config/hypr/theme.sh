@@ -31,6 +31,8 @@ image1=$(find_image $theme 1)
 image2=$(find_image $theme 2)
 image3=$(find_image $theme 3)
 
+echo $image1
+
 # set wallpapers if they were found
 [ "$image1" != "Error: No image found." ] && hyprctl hyprpaper preload "$image1" 
 [ "$image2" != "Error: No image found." ] && hyprctl hyprpaper preload "$image2" 
@@ -42,6 +44,7 @@ hyprctl hyprpaper wallpaper "DP-2, $image1"
 hyprctl hyprpaper wallpaper "DP-3, $image2"
 hyprctl hyprpaper wallpaper "HDMI-A-1, $image3"
 
+sleep 0.5
 hyprctl hyprpaper unload all
 
 # generate gtk theme
@@ -54,7 +57,7 @@ wpg -s $image1
 pywalfox update
 sh $HOME/.config/dunst/wal.sh
 sh $HOME/.config/spicetify/Themes/Pywal/update-colors.sh 
-sh $HOME/.config/sddm/wal.sh
+
 pywal-discord -t default
 $HOME/.config/wpg/wp_init.sh
 
@@ -66,4 +69,4 @@ echo $theme > $HOME/.config/hypr/current/theme
 
 # update sddm background
 convert $image1 -resize 1920x1200\! -quality 100  $HOME/.config/sddm/themes/where_is_my_sddm_theme/background.png
-
+sh $HOME/.config/sddm/wal.sh

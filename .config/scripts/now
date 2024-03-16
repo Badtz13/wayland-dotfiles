@@ -8,4 +8,7 @@ echo
 echo "Notifications are currently $(dunstctl is-paused | sed 's/true/paused/;s/false/unpaused/')"
 echo
 sh use
+echo
+python3 ~/Projects/Track/status.py all
+echo
 read -p ""
