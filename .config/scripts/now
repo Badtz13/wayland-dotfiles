@@ -3,12 +3,16 @@ sh fetch.sh
 echo 
 echo $(date +"%-I:%M%p, %a, %b %d, %Y") 
 echo
+python3 ~/Projects/Daylist/daylist.py 
+echo
+fish -c weather
+echo 
 sh $HOME/.config/polybar/next_gcal_event.sh | sed '2d'
 echo 
 echo "Notifications are currently $(dunstctl is-paused | sed 's/true/paused/;s/false/unpaused/')"
 echo
 sh use
-echo
+echo 
 python3 ~/Projects/Track/status.py all
 echo
 read -p ""

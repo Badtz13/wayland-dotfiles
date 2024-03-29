@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# Fetch data silently, sort by today_duration in descending order, take the top 5,
-# and then format the output like a table, handling window class names with spaces
 curl -sS http://time.lan/data | jq -r 'sort_by(.today_duration) | reverse | .[0:5] | .[] | "\(.window_class)|\(.today_duration / 60 | floor)"' | while IFS='|' read -r class duration; do
     printf "%-30s %s minutes\n" "$class" "$duration"
 done
