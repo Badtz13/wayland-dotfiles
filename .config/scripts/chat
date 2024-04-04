@@ -1,12 +1,12 @@
 #!/bin/bash
 
 hyprctl dispatch exec "[workspace 5;silent;tile;noinitialfocus;] beeper"
-hyprctl dispatch exec "[workspace 5;silent;tile;noinitialfocus;] discord"
+hyprctl dispatch exec "[workspace 5;silent;tile;noinitialfocus;] vesktop"
 
 apps_up() {
     clients=$(hyprctl clients -j)
 
-    discord_open=$(echo "$clients" | jq '.[] | select(.class == "discord" and .floating == false and .workspace.id == 5)')
+    discord_open=$(echo "$clients" | jq '.[] | select(.class == "vesktop" and .floating == false and .workspace.id == 5)')
     beeper_open=$(echo "$clients" | jq '.[] | select(.class == "Beeper" and .floating == false and .workspace.id == 5)')
 
     if [[ -n "$discord_open" && -n "$beeper_open" ]]; then
@@ -15,10 +15,11 @@ apps_up() {
         return 1
     fi
 }
+apps_up
 
-while ! apps_up; do
-    sleep 0.5
-done
+# while ! apps_up; do
+#     sleep 0.5
+# done
 
-hyprctl dispatch workspace 5
-hyprctl dispatch splitratio -0.4
+# hyprctl dispatch workspace 5
+# hyprctl dispatch splitratio -0.4

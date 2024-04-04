@@ -10,7 +10,6 @@ function wait_for_hyprpaper {
 
 # Wait for hyprpaper to be running
 wait_for_hyprpaper
-sleep 3
 
 # If "random" is passed, select a random theme folder
 if [ "$1" == "random" ]; then
@@ -67,7 +66,7 @@ pywalfox update
 sh $HOME/.config/dunst/wal.sh
 sh $HOME/.config/spicetify/Themes/Pywal/update-colors.sh 
 
-pywal-discord -t default
+pywal-discord -t default -p /home/badtz/.config/vesktop/themes/
 $HOME/.config/wpg/wp_init.sh
 
 # notify theme
