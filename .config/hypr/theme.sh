@@ -1,17 +1,7 @@
 #!/bin/bash
 
-# Function to wait for hyprpaper to be running
-function wait_for_hyprpaper {
-    while ! pgrep -x "hyprpaper" > /dev/null; do
-        sleep 1
-    done
-    echo "hyprpaper is running, proceeding with setting wallpapers..."
-}
 
-# Wait for hyprpaper to be running
-wait_for_hyprpaper
-
-# If "random" is passed, select a random theme folder
+# if "random" is passed, select a random theme folder
 if [ "$1" == "random" ]; then
   themes=($HOME/Pictures/wallpapers/*)
   rand_theme=${themes[RANDOM % ${#themes[@]}]}
@@ -37,7 +27,7 @@ function find_image {
   return 1
 }
 
-# Adjust the theme variable for image finding
+# adjust the theme variable for image finding
 image1=$(find_image $theme 1)
 image2=$(find_image $theme 2)
 image3=$(find_image $theme 3)
