@@ -2,8 +2,8 @@
 sh fetch.sh
 echo 
 echo $(date +"%-I:%M%p, %a, %b %d, %Y") 
-echo
-python3 ~/Projects/Daylist/daylist.py 
+# echo
+# python3 ~/Projects/Daylist/daylist.py 
 echo
 fish -c weather
 echo 
