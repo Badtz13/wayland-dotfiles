@@ -7,7 +7,7 @@
 	# characters not in the chosen font will fail to render.
 	#
 	# Otherwise, fonts are interpreted in Pango format.
-	font = "/usr/share/fonts/TTF/FiraCode-Regular.ttf"
+	font = "/usr/share/fonts/TTF/DelugiaMonoComplete.ttf"
 
 	# Point size of text.
 	font-size = 14
@@ -20,7 +20,7 @@
 	#
 	# font-features = "smcp, c2sc" (all small caps)
 	# font-features = "liga 0" (disable ligatures)
-	font-features = ""
+	font-features = "ss19,ss20,zero"
 
 	# Comma separated list of OpenType font variation settings to apply
 	# to variable fonts. The format is similar to the CSS
@@ -36,7 +36,7 @@
 	# specified via `font`. Disabling font hinting speeds up text
 	# rendering appreciably, but will likely look poor at small font pixel
 	# sizes.
-	hint-font = true
+	hint-font = false
 
 #
 ### Text theming
@@ -62,13 +62,13 @@
 	#     Radius of background box corners in pixels
 
 	# Prompt text theme
-	# prompt-color = #FFFFFF
+	# prompt-color = #FF00FF
 	prompt-background = #00000000
 	prompt-background-padding = 0
 	prompt-background-corner-radius = 0
 
 	# Placeholder text theme
-	placeholder-color = #FFFFFFA8
+	placeholder-color = #FF00FFA8
 	placeholder-background = #00000000
 	placeholder-background-padding = 0
 	placeholder-background-corner-radius = 0
@@ -124,7 +124,7 @@
 	# text-cursor-background = #000000
 
 	# Corner radius of the text cursor
-	text-cursor-corner-radius = 0
+	text-cursor-corner-radius = 2
 
 	# Thickness of the bar and underscore text cursors.
 	#
@@ -161,8 +161,8 @@
 ### Window theming
 #
 	# Width and height of the window. Can be pixels or a percentage.
-	width = 600
-	height = 300
+	width = 400
+	height = 250
 
 	# Window background color
 	#!background-color = #1B1D1E
@@ -233,7 +233,7 @@
 	hide-cursor = false
 
 	# Show a text cursor in the input field.
-	text-cursor = false
+	text-cursor = true
 
 	# Sort results by number of usages in run and drun modes.
 	history = true
