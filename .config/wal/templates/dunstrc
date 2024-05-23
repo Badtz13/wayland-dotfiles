@@ -22,7 +22,7 @@
     frame_width = 2
 
     # How long a user needs to be idle for sticky notifications
-    idle_threshold = 120
+    idle_threshold = 0
 
     # Font and typography settings
     font = Delugia Mono 11
