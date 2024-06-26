@@ -1,0 +1,17 @@
+#!/bin/bash
+
+REGION=$(slurp)
+
+wl-screenrec --audio --audio-device bluez_output.88_C9_E8_4D_FF_39.1.monitor -g "$REGION" &
+PID=$!
+dunstify -A stop,Stop "Recording started" "Click to stop recording" -r 12345
+
+while true; do
+    if pkill -0 -f 'dunstify -A stop,Stop'; then
+        sleep 1
+    else
+        kill $PID
+        dunstify "Recording stopped" -t 2000
+        break
+    fi
+done
