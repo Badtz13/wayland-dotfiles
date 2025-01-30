@@ -2,9 +2,9 @@
 
 [global]
     width = 300
-    height = 200
+    height = (0,200)
     origin = top-right
-    offset = 20x20
+    offset = (20,20)
 
     monitor = 2
 
@@ -36,11 +36,6 @@
     # Allow some HTML tags like <i> and <u> in notifications
     markup = full
 
-# These are the keybindings used to control dunst notifications
-[shortcuts]
-    close = ctrl+space
-    close_all = ctrl+shift+space
-    history = ctrl+grave
 
 # Set the background and foreground (text) color for all notifications
 [urgency_low]
