@@ -1,0 +1,5 @@
+#!/bin/bash
+ddcutil setvcp 10 50 --bus=6
+ddcutil setvcp 10 70 --bus=8
+ddcutil setvcp 10 40 --bus=9
+pkill hyprsunset

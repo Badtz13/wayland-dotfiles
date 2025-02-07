@@ -7,3 +7,5 @@ cat ~/.cache/wal/sequences
 if test -z "$DISPLAY" && test (tty) = "/dev/tty1"
     exec Hyprland
 end
+
+set -Ux fish_user_paths /home/badtz/.cargo/bin $fish_user_paths

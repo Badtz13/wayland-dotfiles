@@ -62,7 +62,7 @@ pywal-discord -t default -p /home/badtz/.config/vesktop/themes/
 $XDG_CONFIG_HOME/wpg/wp_init.sh
 
 # notify theme
-notify-send "Theme set to" $theme -t 1000
+notify-send "Theme set to" $theme -h string:x-hyprnotify-color:$(sed -n '12p' "$XDG_CACHE_HOME/wal/colors" | tr -d '\n') -t 2000
 
 # store wallpapers in config file
 echo "preload = $image1" > "$XDG_CONFIG_HOME/hypr/hyprpaper.conf"

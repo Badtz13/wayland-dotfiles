@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Prepend "Assign Random" to the list of wallpapers, then pass it to tofi
-SELECTED=$(echo -e "Assign Random\n$(ls $HOME/Pictures/wallpapers)" | tofi -c $HOME/.config/tofi/config --include "$HOME/.cache/wal/colors-tofi")
+SELECTED=$(echo -e "Assign Random\n$(ls $HOME/Pictures/wallpapers)" | tofi -c $XDG_CONFIG_HOME/tofi/config --include "$XDG_CACHE_HOME/wal/colors-tofi")
 
 # Call theme.sh with the selected option
 if [ "$SELECTED" == "Assign Random" ]; then
-  $HOME/.config/hypr/theme.sh "random"
+  $XDG_CONFIG_HOME/hypr/theme.sh "random"
 else
-  $HOME/.config/hypr/theme.sh "$SELECTED"
+  $XDG_CONFIG_HOME/hypr/theme.sh "$SELECTED"
 fi
