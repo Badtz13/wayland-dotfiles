@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo "" | tofi -c $XDG_CONFIG_HOME/tofi/config --include "$XDG_CACHE_HOME/wal/colors-tofi" --include "$XDG_CONFIG_HOME/scripts/remind-tofi" --height 100 | python3 $XDG_CONFIG_HOME/scripts/post.py
