@@ -1,10 +1,12 @@
 #!/bin/bash
 
-DURATIONS="5s\n10s\n15s\n30s\n1m\n2m\n4m\n8m\n1h\n2h\n4h\n8h\n1d"
+DURATIONS="1m\n10m\n30m\n45m\n1h\n90m\n2h\n4h"
 
-SELECTED_DURATION=$(echo -e "$DURATIONS" | tofi -c $XDG_CONFIG_HOME/tofi/config --include "$XDG_CACHE_HOME/wal/colors-tofi" --prompt-text "time: ")
+SELECTED_DURATION=$(echo -e "$DURATIONS" | tofi -c $XDG_CONFIG_HOME/tofi/config --include "$XDG_CACHE_HOME/wal/colors-tofi" --prompt-text "$(date "+%I:%M %p") + " --height 200 --width 200)
 
-REMINDER_NAME=$(echo "" | tofi -c $XDG_CONFIG_HOME/tofi/config --include "$XDG_CACHE_HOME/wal/colors-tofi" --include "$XDG_CONFIG_HOME/scripts/remind-tofi" --prompt-text "name: ")
+if [[ -n "$SELECTED_DURATION" ]]; then
+    REMINDER_NAME=$(echo "" | tofi -c $XDG_CONFIG_HOME/tofi/config --include "$XDG_CACHE_HOME/wal/colors-tofi" --include "$XDG_CONFIG_HOME/scripts/remind-tofi" --prompt-text "in $SELECTED_DURATION : " --height 40 --width 400)
+fi
 
 if [[ -n "$REMINDER_NAME" ]]; then
     (sleep "$SELECTED_DURATION" && notify-send "Reminder:" "$REMINDER_NAME" -h int:x-hyprnotify-font-size:15 -h string:x-hyprnotify-color:$(sed -n '12p' "$XDG_CACHE_HOME/wal/colors" | tr -d '\n') -t 10000) & disown
