@@ -1,12 +1,13 @@
 #!/bin/bash
 
 hyprctl dispatch exec "[workspace 5;silent;tile;noinitialfocus;] beeper"
-hyprctl dispatch exec "[workspace 5;silent;tile;noinitialfocus;] discord"
+hyprctl dispatch exec "[workspace 5;silent;tile;noinitialfocus;] mooonlight-stable"
+
 
 apps_up() {
     clients=$(hyprctl clients -j)
 
-    discord_open=$(echo "$clients" | jq '.[] | select(.class == "discord" and .floating == false and .workspace.id == 5)')
+    discord_open=$(echo "$clients" | jq '.[] | select(.class == "Discord" and .floating == false and .workspace.id == 5)')
     beeper_open=$(echo "$clients" | jq '.[] | select(.class == "Beeper" and .floating == false and .workspace.id == 5)')
 
     if [[ -n "$discord_open" && -n "$beeper_open" ]]; then

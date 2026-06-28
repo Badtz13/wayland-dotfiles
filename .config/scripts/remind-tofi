@@ -1,23 +1,6 @@
 #
 ### Behaviour
 #
-	# Hide the mouse cursor.
-	hide-cursor = false
-
-	# Show a text cursor in the input field.
-	text-cursor = true
-
-	# Sort results by number of usages in run and drun modes.
-	history = true
-
-	# Specify an alternate file to read and store history information
-	# from / to. This shouldn't normally be needed, and is intended to
-	# facilitate the creation of custom modes.
-	history-file = /home/badtz/.config/scripts/tofi-history
-
-	# Use fuzzy matching for searches.
-	fuzzy-match = true
-
 	# If true, require a match to allow a selection to be made. If false,
 	# making a selection with no matches will print input to stdout.
 	# In drun mode, this is always true.

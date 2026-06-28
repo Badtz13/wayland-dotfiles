@@ -2,10 +2,10 @@
 
 DURATIONS="1m\n10m\n30m\n45m\n1h\n90m\n2h\n4h"
 
-SELECTED_DURATION=$(echo -e "$DURATIONS" | tofi -c $XDG_CONFIG_HOME/tofi/config --include "$XDG_CACHE_HOME/wal/colors-tofi" --prompt-text "$(date "+%I:%M %p") + " --height 200 --width 200)
+SELECTED_DURATION=$(echo -e "$DURATIONS" | tofi --include "$XDG_CACHE_HOME/wal/colors-tofi" --prompt-text "$(date "+%I:%M %p") + " --height 200 --width 200)
 
 if [[ -n "$SELECTED_DURATION" ]]; then
-    REMINDER_NAME=$(echo "" | tofi -c $XDG_CONFIG_HOME/tofi/config --include "$XDG_CACHE_HOME/wal/colors-tofi" --include "$XDG_CONFIG_HOME/scripts/remind-tofi" --prompt-text "in $SELECTED_DURATION : " --height 40 --width 400)
+    REMINDER_NAME=$(echo "" | tofi --include "$XDG_CACHE_HOME/wal/colors-tofi" --include "$XDG_CONFIG_HOME/scripts/remind-tofi" --prompt-text "in $SELECTED_DURATION : " --height 40 --width 400)
 fi
 
 if [[ -n "$REMINDER_NAME" ]]; then

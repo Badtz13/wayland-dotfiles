@@ -70,7 +70,7 @@ default() {
   printf "${c5} Uptime: $(Uptime)\n"
   printf "${c6} Shell: $(Shell)\n"
   printf "${c7} WM: $(Desktop)\n"
-  printf "${c8} Theme: $(Theme)\n"
+  # printf "${c8} Theme: $(Theme)\n"
 }
 
 if [ "$1" != "" ]; then
